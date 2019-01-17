@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ca-brightside-2.0-agent' }
+    agent { label 'ca-brightside-ce-agent' }
     environment {
         BUILD_COBOL = "./jenkins/build.sh"
         DEPLOY_SCRIPT = "./jenkins/deploy.sh"
