@@ -5,9 +5,11 @@ pipeline {
         DEPLOY_SCRIPT = "./jenkins/deploy.sh"
         TEST_SCRIPT = "./jenkins/test.sh"
 
-        ZOWE_OPT_HOST = credentials('apimlHost')
-        ZOWE_OPT_PORT = credentials('apimlPort')
-        ZOWE_OPT_BASE_PATH = credentials('zosmfBasePath')
+        // ZOWE_OPT_HOST = credentials('apimlHost')
+        // ZOWE_OPT_PORT = credentials('apimlPort')
+        // ZOWE_OPT_BASE_PATH = credentials('zosmfBasePath')
+        ZOWE_OPT_HOST = credentials('host')
+        ZOWE_OPT_PORT = credentials('port')
         ZOWE_OPT_REJECT_UNAUTHORIZED = false
 
         BUILD_JCL = credentials('buildJCL')
