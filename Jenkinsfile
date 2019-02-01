@@ -24,21 +24,21 @@ pipeline {
                 sh 'npm --version'
                 sh 'bright --version'
                 sh 'npm install'
-                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASSWORD')]) {
                     sh "chmod +x $BUILD_COBOL && $BUILD_COBOL"
                 }
             }
         }
         stage('deploy') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASSWORD')]) {
                     sh "chmod +x $DEPLOY_SCRIPT && $DEPLOY_SCRIPT"
                 }
             }
         }
         stage('test') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'zosmfCreds', usernameVariable: 'ZOWE_OPT_USER', passwordVariable: 'ZOWE_OPT_PASSWORD')]) {
                     sh "chmod +x $TEST_SCRIPT && $TEST_SCRIPT"
                 }
             }
